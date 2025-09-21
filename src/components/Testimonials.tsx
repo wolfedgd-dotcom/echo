@@ -1,7 +1,11 @@
 import React from 'react';
 import { Quote, Star } from 'lucide-react';
 
-const Testimonials = () => {
+interface TestimonialsProps {
+  onPlanSelect: (plan: any) => void;
+}
+
+const Testimonials: React.FC<TestimonialsProps> = ({ onPlanSelect }) => {
   const testimonials = [
     {
       quote: "The AI receptionist saved me hours of missed calls! Our booking rate increased by 40% in just the first month.",

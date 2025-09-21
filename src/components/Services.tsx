@@ -1,7 +1,11 @@
 import React from 'react';
 import { Star, Globe, MessageCircle, CheckCircle, ArrowRight } from 'lucide-react';
 
-const Services = () => {
+interface ServicesProps {
+  onPlanSelect: (plan: any) => void;
+}
+
+const Services: React.FC<ServicesProps> = ({ onPlanSelect }) => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {

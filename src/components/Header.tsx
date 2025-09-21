@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { Menu, X, Sparkles } from 'lucide-react';
 
-const Header = () => {
+interface HeaderProps {
+  onPlanSelect: (plan: any) => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ onPlanSelect }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {

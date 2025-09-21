@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { Mail, Phone, Send } from 'lucide-react';
 
-const Contact = () => {
+interface ContactProps {
+  onPlanSelect: (plan: any) => void;
+}
+
+const Contact: React.FC<ContactProps> = ({ onPlanSelect }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',

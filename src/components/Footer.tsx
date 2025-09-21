@@ -1,7 +1,11 @@
 import React from 'react';
 import { Linkedin, Twitter, Facebook, Mail, ArrowUp } from 'lucide-react';
 
-const Footer = () => {
+interface FooterProps {
+  onPlanSelect: (plan: any) => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ onPlanSelect }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };

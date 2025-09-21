@@ -1,7 +1,11 @@
 import React from 'react';
 import { ArrowRight, Bot, Globe, Phone, Star, Zap } from 'lucide-react';
 
-const Hero = () => {
+interface HeroProps {
+  onPlanSelect: (plan: any) => void;
+}
+
+const Hero: React.FC<HeroProps> = ({ onPlanSelect }) => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {

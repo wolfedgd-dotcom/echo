@@ -1,7 +1,11 @@
 import React from 'react';
 import { Clock, DollarSign, TrendingUp, Zap, ArrowRight } from 'lucide-react';
 
-const Benefits = () => {
+interface BenefitsProps {
+  onPlanSelect: (plan: any) => void;
+}
+
+const Benefits: React.FC<BenefitsProps> = ({ onPlanSelect }) => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {

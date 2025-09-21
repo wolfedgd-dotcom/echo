@@ -1,7 +1,11 @@
 import React from 'react';
 import { Check, Star, ArrowRight } from 'lucide-react';
 
-const Pricing = () => {
+interface PricingProps {
+  onPlanSelect: (plan: any) => void;
+}
+
+const Pricing: React.FC<PricingProps> = ({ onPlanSelect }) => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -9,8 +13,8 @@ const Pricing = () => {
     }
   };
 
-  const handlePlanSelect = (planName: string) => {
-    scrollToSection('contact');
+  const handlePlanSelect = (plan: any) => {
+    onPlanSelect(plan);
   };
 
   const plans = [
@@ -117,7 +121,7 @@ const Pricing = () => {
               </ul>
 
               <button 
-                onClick={() => handlePlanSelect(plan.name)}
+                onClick={() => handlePlanSelect(plan)}
                 className={`w-full py-3 px-6 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center group relative overflow-hidden ${
                 plan.popular 
                   ? 'bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 shadow-lg hover:shadow-blue-500/25 transform hover:-translate-y-1' 

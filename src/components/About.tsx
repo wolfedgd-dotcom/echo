@@ -1,7 +1,11 @@
 import React from 'react';
 import { Target, Users, Lightbulb, ArrowRight } from 'lucide-react';
 
-const About = () => {
+interface AboutProps {
+  onPlanSelect: (plan: any) => void;
+}
+
+const About: React.FC<AboutProps> = ({ onPlanSelect }) => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
