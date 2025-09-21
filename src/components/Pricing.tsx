@@ -1,7 +1,18 @@
 import React from 'react';
-import { Check, Star } from 'lucide-react';
+import { Check, Star, ArrowRight } from 'lucide-react';
 
 const Pricing = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handlePlanSelect = (planName: string) => {
+    scrollToSection('contact');
+  };
+
   const plans = [
     {
       name: "Regular",
@@ -105,12 +116,16 @@ const Pricing = () => {
                 ))}
               </ul>
 
-              <button className={`w-full py-3 px-6 rounded-lg font-semibold transition-all duration-300 ${
+              <button 
+                onClick={() => handlePlanSelect(plan.name)}
+                className={`w-full py-3 px-6 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center group relative overflow-hidden ${
                 plan.popular 
-                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-blue-500/25 transform hover:-translate-y-1' 
-                  : 'bg-gray-700/50 text-gray-300 hover:bg-gray-600/50 hover:text-white'
+                  ? 'bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 shadow-lg hover:shadow-blue-500/25 transform hover:-translate-y-1' 
+                  : 'bg-gray-700/50 text-gray-300 hover:bg-gray-600/50 hover:text-white border border-gray-600 hover:border-blue-500/50'
               }`}>
+                <span className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                 {plan.buttonText}
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
           ))}

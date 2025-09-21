@@ -1,7 +1,14 @@
 import React from 'react';
-import { Star, Globe, MessageCircle, CheckCircle } from 'lucide-react';
+import { Star, Globe, MessageCircle, CheckCircle, ArrowRight } from 'lucide-react';
 
 const Services = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const services = [
     {
       icon: Star,
@@ -72,8 +79,13 @@ const Services = () => {
                 ))}
               </ul>
               
-              <button className="w-full mt-8 bg-gray-700/50 text-gray-300 px-6 py-3 rounded-lg font-semibold hover:bg-gray-600/50 transition-colors group-hover:bg-blue-600/20 group-hover:text-blue-400">
-                Learn More
+              <button 
+                onClick={() => scrollToSection('contact')}
+                className="w-full mt-8 bg-gray-700/50 text-gray-300 px-6 py-3 rounded-lg font-semibold hover:bg-gray-600/50 transition-all duration-300 group-hover:bg-blue-600/20 group-hover:text-blue-400 flex items-center justify-center group/btn relative overflow-hidden"
+              >
+                <span className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></span>
+                Get Started
+                <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
               </button>
             </div>
           ))}

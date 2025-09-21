@@ -1,7 +1,14 @@
 import React from 'react';
-import { Clock, DollarSign, TrendingUp, Zap } from 'lucide-react';
+import { Clock, DollarSign, TrendingUp, Zap, ArrowRight } from 'lucide-react';
 
 const Benefits = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const benefits = [
     {
       icon: Clock,
@@ -54,6 +61,17 @@ const Benefits = () => {
               <p className="text-blue-200 leading-relaxed">{benefit.description}</p>
             </div>
           ))}
+        </div>
+        
+        <div className="text-center mt-16">
+          <button 
+            onClick={() => scrollToSection('contact')}
+            className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/25 flex items-center justify-center mx-auto group relative overflow-hidden"
+          >
+            <span className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+            Start Your AI Transformation
+            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </button>
         </div>
       </div>
     </section>
